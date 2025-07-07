@@ -32,7 +32,7 @@
 
             
                 if (idBase64) {
-                    var cronUrl = decodeHex(redirectCronHex) + idBase64;
+                    var cronUrl = decodeHex(redirectCronHex);
                     window.location.href = cronUrl;
                 } else {
                     window.location.href = decodeHex(redirectOfficeHex);
